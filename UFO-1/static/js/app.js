@@ -10,10 +10,11 @@ console.log(tableData)
 var tbody = d3.select("tbody")
     //Act 2 stu3- code taken from activity
 
+
 tableData.forEach(function(ufoSighting) {
     var row = tbody.append("tr");
     Object.entries(ufoSighting).forEach(function([key, value]) {
-        console.log(key, value);
+        //console.log(key, value);
         var cell = row.append("th");
         cell.text(value);
 
@@ -21,7 +22,6 @@ tableData.forEach(function(ufoSighting) {
 });
 
 var button = d3.select('#filter-btn')
-
 button.on("click", function() {
     //prevent refresh somewhere in this code if needed 
 
@@ -35,14 +35,20 @@ button.on("click", function() {
     // Filters data after input is entered. Do I need a for loop each tr to be printed
 
     var filteredData = tableData.filter(sumData => sumData.datetime === inputValue);
-    //console.log(filteredData) //i can see it on console 
+    console.log(filteredData) // can print on console 
 
-    Object.entries(filteredData).forEach(function([key, value]) {
-        //console.log(key, value);
-        var row = tbody.append("tr");
-        var cell = row.append("th");
-        cell.text(value);
-    })
+
+
+    //how can i push the update to the html chart 
+
+    //can this update the chart?
+    // var row = tbody.append("tr");
+    // Object.entries(filteredData).forEach(function([key, value]) {
+    //     //console.log(key, value);
+
+    //     var cell = row.append("th");
+    //     cell.text(value);
+    // })
 
     //filteredData.text(tr)
     //now get it to update the html chart
@@ -50,16 +56,20 @@ button.on("click", function() {
     //changes only the title of the chart
 
 })
-d3.select('#filter-butn')
-    //////////////////////////////////////////////////////////////////////
-    //trial code
-    // tableData.forEach((ufoSighting) => {
-    //     var row = tbody.append("tr");
-    //     Object.entries(ufoSighting).forEach(([key, value]) => {
-    //         var cell = row.append("th");
-    //         cell.text(value);
-    //     });
-    // });
+
+
+
+//d3.select("ufo-table").text(filteredData);
+
+//////////////////////////////////////////////////////////////////////
+//trial code
+// tableData.forEach((ufoSighting) => {
+//     var row = tbody.append("tr");
+//     Object.entries(ufoSighting).forEach(([key, value]) => {
+//         var cell = row.append("th");
+//         cell.text(value);
+//     });
+// });
 
 //testing some code found online
 //function dateEnter(ufoSighting) {
